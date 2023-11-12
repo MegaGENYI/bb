@@ -126,10 +126,31 @@ mob = {
 	
 		'obj': [                             # тут поменяешь названия
 			pg.image.load('./media/mob/player/andrey_right.png').convert_alpha(),
-			pg.image.load('./media/mob/player/andrey_left.png').convert_alpha()
+			pg.image.load('./media/mob/player/andrey_left.png').convert_alpha(),
+			pg.image.load('./media/mob/player/g_andrey_right.png').convert_alpha(),
+			pg.image.load('./media/mob/player/g_andrey_left.png').convert_alpha()
 		],
 	
 		'size': (117, 200)
+	
+	},
+	
+	'teacher': {
+	
+		'names': {
+			'teacher': 0
+			},
+		
+		'path': {
+			'teacher': [[100, 100], [900, 100], [900, 300]]
+			},
+	
+		'obj': [
+			pg.image.load('./media/mob/teachers/r1.png').convert_alpha(),
+			pg.image.load('./media/mob/teachers/l1.png').convert_alpha()
+			],
+	
+		'size' : (117, 200)	
 	
 	}
 
