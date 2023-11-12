@@ -108,25 +108,29 @@ school_map = {
 
 # У Андрея все попроще
 
-npc = {
+mob = {
+	
+	'npc': {   
 	   
-	'obj': [                             #здесь имя файла вводишь
-		pg.image.load('./media/mob/npc/.png').convert_alpha() # запятые 
-		], # чтоб добавить, понимаешь, да?
-		  # прост копируешь предыдущее и меняешь название 
-		  # конечного файла в пути
-	   
-	'size': () # здесь размеры изображения
-	# сначала по x, потом по y
-}
+		'obj': 
+			[
+			pg.image.load('./media/mob/npc/l1.png').convert_alpha(),
+			pg.image.load('./media/mob/npc/r1.png').convert_alpha()
+			], 
+		   
+		'size': (117, 200) 
+		   
+	},
 
-player = {
+	'player': {
 	
-	'obj': [                             # тут поменяешь названия
-		pg.image.load('./media/mob/player/andrey_right.png').convert_alpha(),
-		pg.image.load('./media/mob/player/andrey_left.png').convert_alpha()
-	],
+		'obj': [                             # тут поменяешь названия
+			pg.image.load('./media/mob/player/andrey_right.png').convert_alpha(),
+			pg.image.load('./media/mob/player/andrey_left.png').convert_alpha()
+		],
 	
-	'size': (117, 200)
+		'size': (117, 200)
 	
+	}
+
 }
