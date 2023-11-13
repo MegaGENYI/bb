@@ -126,13 +126,19 @@ class Teacher(Mob):
 	def __init__(self,  
 				 name = 'teacher'):
 		
-		self.role = 'teacher'
-		self.model = media.mob[self.role]['names'][name]
-		self.size = media.mob[self.role]['size']
+		self.be = True
+		if name == None: self.be = False 
 		
-		self.path = media.mob[self.role]['path'][name]
-		self.point = 0
-		self.position = self.path[0]
+		if self.be:
+			self.role = 'teacher'
+			self.model = media.mob[self.role]['names'][name][0]
+			self.size = media.mob[self.role]['size']
+			
+			self.path = media.mob[self.role]['path'][name]
+			self.point = 0
+			self.position = self.path[0]
+		
+	def get_be(self): return self.be		
 		
 	def vector(self, pos):
 		
@@ -205,3 +211,36 @@ class Player(Mob):
 	def get_health(self): return self.health
 	
 	def player_replace(self, new_pos): self.position = new_pos
+	
+class Boss():
+	
+	def __init__(self, 
+			  name = 'teacher'):
+		
+		self.be = True
+		if name == None: self.be = False
+		
+		if self.be:
+			self.role = 'boss'
+			self.position = media.mob[self.role][name]['position']
+			self.size = media.mob[self.role][name]['size']
+			
+			self.health = 10000
+			self.questions = media.mob[self.role][name]['questions']
+		
+	def get_be(self): return self.be
+	def get_pos(self): return self.position
+	
+	def get_collision(self): 
+		
+		return [
+				[self.position[0]-20, self.position[0]+self.size[0]+20], 
+				[self.position[1]-20, self.position[1]+self.size[1]+20]
+				]
+	
+	def draw(self):
+		
+		(media.screen).blit(
+			media.mob[self.role]['teacher']['obj'][0], 
+			self.position
+		)

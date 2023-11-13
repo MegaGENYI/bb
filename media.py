@@ -52,13 +52,18 @@ school_map = {
 
 	'road': {
 
-		'obj': pg.image.load('./media/map/road.png').convert(),		
+		'obj': pg.image.load('./media/map/road.png').convert(),
+		
+		'teacher': None,
+		'boss': None,
+		'NPC': [[250, 600]],
 
 		'exit': {
 			
-				'hall': {
-					 'col_x': (0),
-					 'col_y': (0)
+				'road2': {
+					 'col_x': (1590, 1600),
+					 'col_y': (0, 450),
+					 'spawn': [75, 100]
 					 }
 				
 			},
@@ -79,30 +84,39 @@ school_map = {
 		
 		},
 	
-	'hall': {
+	'road2': {
+
+		'obj': pg.image.load('./media/map/road2.png').convert(),	
 		
-		'path': './media/map/',
+		'teacher': None,
+		'boss': 'teacher',
+		'NPC': [],
+
 		'exit': {
 			
-				'long_corridor_d': {
-					'col_x': (),
-					'col_y': ()
-					}
-					
+				'road': {
+					 'col_x': (0, 10),
+					 'col_y': (0, 450),
+					 'spawn': [1325, 100]
+					 }
+				
 			},
-			
-		'obj': 0, # pg.image.load(school_map['hall']['path']).convert(),
-			
+		
 		'collisions': [
-			
-			{
-			 'col_x': (),
-			 'col_y': ()
-			 }
-			
-		]
-	
-	}
+
+				{
+				 'col_x': (0, 200),
+				 'col_y': (450, 900)
+				 }, 
+				
+				{
+				 'col_x': (1400, 1600),
+				 'col_y': (450, 900)
+				 }
+
+			]
+		
+	},
 
 }
 
@@ -138,11 +152,13 @@ mob = {
 	'teacher': {
 	
 		'names': {
-			'teacher': 0
+			'teacher': (0, 1),
+			'oleg': (0, 1)
 			},
 		
 		'path': {
-			'teacher': [[100, 100], [900, 100], [900, 300]]
+			'teacher': [[100, 100], [900, 100], [900, 300]],
+			'oleg': [[1400, 20], [600, 20], [600, 500], [300, 500]]
 			},
 	
 		'obj': [
@@ -152,6 +168,25 @@ mob = {
 	
 		'size' : (117, 200)	
 	
+	},
+	
+	'boss': {
+		
+		'teacher': {
+			
+			'obj': [
+				pg.image.load('./media/mob/boss/r1.png').convert_alpha()
+				],
+			
+			'position': [500, 400],
+			'size': (117, 200),
+				
+			'questions': [
+				'Фамилия В.В.Путина'
+				]		
+					
+		}
+			
 	}
 
 }
